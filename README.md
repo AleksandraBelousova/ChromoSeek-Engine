@@ -1,6 +1,10 @@
-![alt text](https://img.shields.io/travis/com/your-username/ChromoSeek-Engine.svg?style=flat-square)
-
-![alt text](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)
+This is a petproject. In its current configuration, the system is secure for local development in a trusted network. It is not intended for deployment in a production environment or in a network accessible from outside without significant modifications.
+The following mandatory action plan is required for migration to a production environment:
+1. Enable X-Pack Security in Elasticsearch and configure TLS.
+2. Create a dedicated Elasticsearch user for the API with limited privileges and use their credentials (via environment variables) in src/elastic/client.py.
+3. Implement pagination and range size limits in the API to protect against DoS attacks.
+4. Modify the Dockerfile to run the API service from a non-root user.
+5. Integrate vulnerability scanners for dependencies and Docker images into the build process.
 
 Elasticsearch-based system for the indexing and querying of genomic interval data formatted as BED or GFF/GTF files. System performance for spatial queries on genomic coordinates is achieved through Elasticsearch's native integer_range data type, which is indexed using BKD-trees within the underlying Lucene engine. Data ingestion is orchestrated via a Prefect pipeline that populates the index, while a FastAPI application provides a RESTful interface for executing interval intersection and aggregation queries against the dataset.
 System Architecture
