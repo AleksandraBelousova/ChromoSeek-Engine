@@ -1,12 +1,12 @@
 # Intersectome
 
-A high-performance search engine for genomic interval data, optimised for rapid overlap and aggregation queries.
+A search engine for genomic interval data, optimised for rapid overlap and aggregation queries.
 
 The system indexes standard bioinformatics formats (BED, GTF/GFF) and provides a low-latency API. Performance for spatial queries is achieved through Elasticsearch's native `integer_range` data type, which is indexed using BKD-trees within the underlying Lucene engine.
 
 ---
 
-### 🏗️ System Architecture
+### System Architecture
 
 The architecture is composed of three containerised services orchestrated via Docker Compose. The dependency graph ensures the API awaits a healthy Elasticsearch instance before starting.
 
@@ -18,7 +18,7 @@ The architecture is composed of three containerised services orchestrated via Do
 
 ---
 
-### 🚀 Getting Started
+### Getting Started
 
 **Prerequisites:**
 *   Docker Engine
@@ -85,7 +85,7 @@ The API is exposed on the host at `http://localhost:8000`. All endpoints expect 
     ```
 ---
 
-### ️🛡️ Security Advisory & Production Use
+### ️Security Advisory & Production Use
 
 > This is a pet project. In its current configuration, the system is secure only for local development in a trusted network. It is **not** intended for deployment in a production environment without significant modifications.
 
@@ -99,5 +99,3 @@ The following action plan is required for migration to a production environment:
 ### ⚠️ Data Normalisation Prerequisite
 
 The system performs exact keyword matching on the `chrom` field. This means chromosome notations such as `1` and `chr1` are treated as distinct values. Normalising all input data to a consistent chromosome naming convention prior to ingestion is a mandatory pre-processing step to ensure the logical correctness of queries.
-
-### 📁 Directory Layout
