@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "feature_id": { "type": "keyword" },
+    "chrom": { "type": "keyword" },
+    "location": { "type": "integer_range" },
+    "strand": { "type": "keyword" },
+    "score": { "type": "half_float" },
+    "source_file": { "type": "keyword" },
+    "feature_type": { "type": "keyword" },
+    "gene_name": { "type": "keyword" }
+  }
+}
